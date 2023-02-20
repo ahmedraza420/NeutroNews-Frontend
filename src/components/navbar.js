@@ -67,7 +67,7 @@ function Navbar() {
         <div className="top d-flex justify-content-around align-items-center">
             <img className="FUUAST-logo" src="../static/images/federal-urdu-university-logo.png" alt="FUUAST logo" />
             <img className="NN-logo" src="../static/images/NNlogoFinal.png" alt="NeutroNews" />
-            <>.</>
+            <p> </p>
         </div>
     
         {/* <nav>
