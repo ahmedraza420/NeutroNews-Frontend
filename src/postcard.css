@@ -28,7 +28,7 @@
   }
   .post-module:hover .pic1 img,
   .hover .pic1 img {
-    transform: scale(1.01);
+    transform: scale(1.03);
     opacity: .8;
   }
   .post-module .pic1 {
@@ -72,9 +72,10 @@
     bottom: 0;
     background: #FFFFFF;
     width: 100%;
-    padding: 30px 30px 20px 30px;
+    padding: 16% 30px 20px 30px;
     box-sizing: border-box;
     transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
+    
   }
   .post-module .post-content .category {
     position: absolute;
@@ -87,13 +88,18 @@
     font-weight: 600;
     text-transform: uppercase;
   }
-  .post-module .post-content .title {
+  .post-module .post-content .title_text {
     margin: 0;
     padding: 0 0 10px;
-    color: #333333;
+    color: inherit;
     font-size: 26px;
     font-weight: 700;
   }
+
+
+
+
+
   .post-module .post-content .sub_title {
     margin: 0;
     padding: 0 0 20px;
@@ -176,6 +182,9 @@
 
   .title-container{
     min-height: 170px;
+    font-size: 1.3vw; /* Set an initial font size using viewport width (vw) units */
+  overflow: hidden; /* Hide any text that overflows the container */
+  text-overflow: ellipsis; 
   }
 
 
@@ -190,6 +199,11 @@
 
   }
   
+.news-icon {
+  border-radius: 3px;
+}
+
+
   .news-text {
     margin-left: 10px;
   }

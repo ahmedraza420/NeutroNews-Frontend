@@ -1,29 +1,35 @@
 import React from 'react';
 import { useLocation, Link } from "react-router-dom";
-import alternateimage from '../static/images/news-image.jpg'
+import alternateimage from '../static/images/news-image.jpg';
+import blogcard from './card.js';
+ import aryicon from '../static/images/aryicon.png'
+ import geoicon from '../static/images/geoicon.png'
+ import aajicon from '../static/images/aajicon.png'
+ import dunyaicon from '../static/images/dunyaicon.png'
+ import samaaicon from '../static/images/samaaicon.png'
 
 
 
 
-function blogcard(element){
-    return (
-        <div className="post-module body-div1" key={element.id}>
-          <div className="pic1">
-            <img height="200px" width="300px" src={element.newsImage} id={element.id}/>
-          </div>
-          <div className="post-content">
-            <div className="category">{element.category}</div>
-            <h3 className="title_text">{element.newsTitle}</h3>
-            {/* <span style={{ padding:'4px', border:'1px solid', opacity: 0.8, margin:'2px' }}> */}
-            <span>
-              <b> Updated 6 mins ago </b>
-            </span>
-          </div>
-        </div>
-      );
+// function blogcard(element){
+//     return (
+//         <div className="post-module body-div1" key={element.id}>
+//           <div className="pic1">
+//             <img height="200px" width="300px" src={element.newsImage} id={element.id}/>
+//           </div>
+//           <div className="post-content">
+//             <div className="category">{element.category}</div>
+//             <h3 className="title_text">{element.newsTitle}</h3>
+//             {/* <span style={{ padding:'4px', border:'1px solid', opacity: 0.8, margin:'2px' }}> */}
+//             <span>
+//               <b> Updated 6 mins ago </b>
+//             </span>
+//           </div>
+//         </div>
+//       );
 
 
-}
+// }
 
 
 
@@ -53,7 +59,7 @@ function SearchedNews() {
                 <div className="body-div0">
                     <span style={{width:'8px', background:'maroon'}}></span>
                     <h2>
-                        ARY NEWS
+                        ARY NEWS    
                     </h2>
                 </div>
                 <div className="headwith-3divs">
@@ -64,7 +70,7 @@ function SearchedNews() {
                         state= {{state:element, courtesy:'ARY News'}}
                         key={element.id}
                         >
-                        {blogcard(element)}
+                        {blogcard(element, 'arynews', aryicon, 'ARY NEWS')}
                         </Link>
                         //   <div className="body-div1" key={element.id}>
                         //      <div className="pic1">
@@ -95,10 +101,10 @@ function SearchedNews() {
                         element.newsUrl.toString().includes('geo.tv') ?
                         <Link 
                         to={`/read-news/${element.id}`}
-                        state= {{state:element, courtesy:'ARY News'}}
+                        state= {{state:element, courtesy:'GEO News'}}
                         key={element.id}
                         >
-                        {blogcard(element)}
+                        {blogcard(element, 'geo.tv', geoicon, 'GEO NEWS')}
                         </Link>
                         // <div className="body-div1" key={element.id}>
                         //     <div className="pic1">
@@ -121,18 +127,18 @@ function SearchedNews() {
                 <div className="body-div0">
                     <span style={{width:'8px', background:'red'}}></span>
                     <h2>
-                        EXPRESS NEWS
+                        AAJ NEWS
                     </h2>
                 </div>        
                 <div className="headwith-3divs">
                 {searchedNews?.map(element => (
-                        element.newsUrl.toString().includes('express.pk') ?
+                        element.newsUrl.toString().includes('aajenglish.tv') ?
                         <Link 
                         to={`/read-news/${element.id}`}
-                        state= {{state:element, courtesy:'ARY News'}}
+                        state= {{state:element, courtesy:'AAJ News'}}
                         key={element.id}
                         >
-                        {blogcard(element)}
+                        {blogcard(element, 'aajenglish.tv', aajicon, 'AAJ NEWS')}
                         </Link>
                         // <div className="body-div1" key={element.id}>
                         //     <div className="pic1">
@@ -163,10 +169,10 @@ function SearchedNews() {
                         element.newsUrl.toString().includes('dunyanews.tv') ?
                         <Link 
                         to={`/read-news/${element.id}`}
-                        state= {{state:element, courtesy:'ARY News'}}
+                        state= {{state:element, courtesy:'DUNYA News'}}
                         key={element.id}
                         >
-                        {blogcard(element)}
+                        {blogcard(element, 'dunyanews.tv', dunyaicon, 'DUNYA NEWS')}
                         </Link>
                         // <div className="body-div1" key={element.id}>
                         //     <div className="pic1">
@@ -197,10 +203,10 @@ function SearchedNews() {
                         element.newsUrl.toString().includes('samaaenglish') ?
                         <Link 
                         to={`/read-news/${element.id}`}
-                        state= {{state:element, courtesy:'ARY News'}}
+                        state= {{state:element, courtesy:'SAMAA News'}}
                         key={element.id}
                         >
-                        {blogcard(element)}
+                        {blogcard(element, 'samaaenglish', samaaicon, 'SAMAA NEWS')}
                         </Link>
                         // <div className="body-div1" key={element.id}>
                         //     <div className="pic1">

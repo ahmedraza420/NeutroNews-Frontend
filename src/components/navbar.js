@@ -8,13 +8,6 @@ function Navbar() {
 
 
 
-
-
-
-
-
-
-
     const {news, scrapeNews, isScrape} = useContext(UserContext)
     const [text, setText]=useState('');
     const [searchedNews, setSearchedNews] = useState([]);
@@ -49,13 +42,12 @@ function Navbar() {
         setSearchedNews([]);
 
         news?.forEach(element => {
-            if(element.newsTitle.includes(text.charAt(0).toUpperCase() + text.slice(1))){
+            const title = element.newsTitle.toLowerCase();
+            const searchtext = text.toLowerCase();
+            if(title.includes(searchtext.charAt(0) + searchtext.slice(1))){
                 searchedNews.push(element);
             }
-            if(element.newsTitle.includes(text)){
-                searchedNews.push(element);
-            }
-            if(element.newsTitle.includes(text.toUpperCase())){
+            else if(title.includes(searchtext)){
                 searchedNews.push(element);
             }
             navigateToSearchedNews();
