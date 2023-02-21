@@ -321,11 +321,11 @@ nav .hamburger .line{
 
    /* .......mediaQuery is working perfectly...... */
 @media screen and (max-width:550px){
-   .body-div1, .body-div2, .body-div3, .body-div4{
+   .body-div1, .body-div2, .body-div3, .body-div4, post-module{
        width: 100%;
    }
 }
-
+ 
 .tailwith-3divs{
    /* border: 2px solid blue; */
    display: flex;
