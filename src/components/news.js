@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext} from 'react'
 import { Link } from 'react-router-dom';
 import {UserContext} from '../api/context';
 import alternateimage from '../static/images/news-image.jpg'
@@ -77,8 +77,8 @@ import blogcard from  './card.js'
 
 
 function News({news}) {
-    let filterednews=[];
-    filterednews=news?.slice(-12);
+    // let filterednews=[];
+    // filterednews=news?.slice(-12);
     let popular=[];
     popular=news?.slice(11, 15);
     let Latest=[];
@@ -159,7 +159,7 @@ function News({news}) {
                             key={n.id}
                         >
                             <div className='d-flex justify-content-around align-items-center mb-2'>
-                                <div><img style={{maxWidth:'150px', maxHeight:'200px'}} src={n.newsImage} id={n.id} /></div>
+                                <div><img style={{maxWidth:'150px', maxHeight:'200px'}} src={n.newsImage} id={n.id} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src=alternateimage;}}/></div>
                                 <div style={{width:'200px'}}><h6 style={{fontSize:"14px", margin: '0 0 0 5px'}} className='title_text'>{n.newsTitle}</h6></div>
                             </div>
                         </Link>
@@ -174,7 +174,7 @@ function News({news}) {
                             key={n.id}
                         >
                             <div className='d-flex justify-content-around align-items-center mb-2'>
-                                <div><img style={{maxWidth:'150px', maxHeight:'200px'}} src={n.newsImage} id={n.id} /></div>
+                                <div><img style={{maxWidth:'150px', maxHeight:'200px'}} src={n.newsImage} id={n.id} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src=alternateimage;}} /></div>
                                 <div style={{width:'200px'}}><h6 style={{fontSize:"14px", margin: '0 0 0 5px'}} className='title_text'>{n.newsTitle}</h6></div>
                             </div>
                         </Link>
@@ -189,7 +189,7 @@ function News({news}) {
                             key={n.id}
                         >
                             <div className='d-flex justify-content-around align-items-center mb-2'>
-                                <div><img style={{maxWidth:'150px', maxHeight:'200px'}} src={n.newsImage} id={n.id} /></div>
+                                <div><img style={{maxWidth:'150px', maxHeight:'200px'}} src={n.newsImage} id={n.id} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src=alternateimage;}}/></div>
                                 <div style={{width:'200px'}}><h6 style={{fontSize:"14px", margin: '0 0 0 5px'}} className='title_text'>{n.newsTitle}</h6></div>
                             </div>
                         </Link>
@@ -229,38 +229,7 @@ function News({news}) {
                         key={element.id}
                     >
                         {blogcard(element, "arynews", aryicon, "ARY NEWS")}
-                        {/* <div className="body-div1" key={element.id}>
-                            <div className="pic1">
-                                <img 
-                                src={element.newsImage} 
-                                id={element.id} 
-                                onError={({ currentTarget }) => {
-                                currentTarget.onerror = null;
-                                currentTarget.src=alternateimage;
-                                }}/>
-                            </div>
-                            <h6 className='title_text'>{element.newsTitle}</h6>
-                        </div> */}
-
-                        
-                        {/* <div  className="post-module body-div1" key={element.id} style={{ border:'2px solid',margin:'4px' , height: '471px',borderRadius: '2px',
-                            boxShadow: '5px 2px 5px 1px gray',width:'300px'}} >
-                            <div className="pic1">
-                                <img height="200px" 
-                                width = "300px"  
-                                src={element.newsImage} 
-                                id={element.id}/>
-                            </div>
-                            <div className="post-content">
-                                <div className="category">CATEGORY</div>
-                                <h3 className="title_text">{element.newsTitle}</h3>
-                                <span style={{ padding:'4px', border:'1px solid', opacity: 0.8, margin:'2px' }} > 
-                                    <b> Updated 6 mins ago </b> 
-                                </span>  
-                            
-                                
-                        </div>
-                        </div> */}
+                
 
                         
                     </Link>
@@ -285,20 +254,6 @@ function News({news}) {
                     >
 
                         {blogcard(element, 'geo.tv', geoicon, 'GEO NEWS')}
-
-                        {/* <div className="body-div1" key={element.id}>
-                            <div className="pic1">
-                                <img 
-                                src={element.newsImage} 
-                                id={element.id}
-                                onError={({ currentTarget }) => {
-                                currentTarget.onerror = null;
-                                currentTarget.src=alternateimage;
-                                }}
-                                />
-                            </div>
-                            <h6 className='title_text'>{element.newsTitle}</h6>
-                        </div> */}
                     </Link>
                     :
                     null
@@ -322,19 +277,6 @@ function News({news}) {
                     >
                         {blogcard(element, 'aajenglish.tv', aajicon, 'AAJ NEWS')}
 
-                        {/* <div className="body-div1" key={element.id}>
-                            <div className="pic1">
-                                <img 
-                                src={element.newsImage} 
-                                id={element.id}
-                                onError={({ currentTarget }) => {
-                                currentTarget.onerror = null;
-                                currentTarget.src=alternateimage;
-                                }}
-                                />
-                            </div>
-                            <h6 className='title_text'>{element.newsTitle}</h6>
-                        </div> */}
                     </Link>
                     :
                     null

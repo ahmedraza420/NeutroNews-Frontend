@@ -24,7 +24,7 @@ function nsource(element, linkhas, newsicon, newsname){
       element.newsUrl.toString().includes(linkhas) ?
       <div className='news-icon-container'>
           <div className='news-icon'>
-              <img height="25px" width="27px" src={newsicon} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src=alternateimage;}}/>
+              <img height="25px" width="27px" src={newsicon} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src=alternateimage;}} alt="News Icon"/>
           </div>
           <div className='news-text'>
               {newsname}
@@ -35,7 +35,7 @@ function nsource(element, linkhas, newsicon, newsname){
       
       <div className='news-icon-container'>
           <div className='news-icon'>
-              <img height="25px" width="27px" src={alternateimage}/>
+              <img height="25px" width="27px" src={alternateimage} alt="there was a problem fetching the source icon"/>
           </div>
           <div className='news-text'>
               News
@@ -59,6 +59,7 @@ function blogcard(element, linkhas, newsicon, newsname){
               onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src=alternateimage;}}
+              alt="News Article"
           />
         </div>
         <div className="post-content">
@@ -67,9 +68,9 @@ function blogcard(element, linkhas, newsicon, newsname){
           <h3 className="title_text">{element.newsTitle}</h3>
           </div>
           {/* <span style={{ padding:'4px', border:'1px solid', opacity: 0.8, margin:'2px' }}> */}
-          <span>
-            <b> {nsource(element, linkhas, newsicon, newsname)} </b>
-          </span>
+          <a href={element.newsUrl}>
+           <b> {nsource(element, linkhas, newsicon, newsname)} </b>
+          </a>
         </div>
       </div>
     );

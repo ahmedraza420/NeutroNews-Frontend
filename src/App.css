@@ -93,6 +93,7 @@ input:checked + .tslider:before {
 .dark {
   background-image: linear-gradient(0deg , #121212, #131313, #141414, #151515);
   color: #ddd;
+  overflow-x: hidden;
 }
 .light {
   background-image: linear-gradient(0deg, #eeeeee, #efefef, #f0f0f0);
@@ -167,12 +168,12 @@ body{
 }
 
 /* ....NAvBar... */
-nav {
+/* nav {
   background-color: rgb(25, 25, 83);
   position: fixed;
   top: 0;
   width: 100%
-}
+} */
 
 nav li {
   float: left;
@@ -281,7 +282,7 @@ nav .hamburger .line{
   background-size: cover;
 }
    
-.body-div0{
+/* .body-div0{
   margin: 30px auto 0 auto;
   display: flex;
 }
@@ -292,7 +293,7 @@ nav .hamburger .line{
   font-size: 25px;
   margin: 0;
   font-weight: 800;
-}
+} */
 .headwith-3divs{
    /* border: 2px solid blue; */
    display: flex;
@@ -321,7 +322,7 @@ nav .hamburger .line{
 
    /* .......mediaQuery is working perfectly...... */
 @media screen and (max-width:550px){
-   .body-div1, .body-div2, .body-div3, .body-div4, post-module{
+   .body-div1{
        width: 100%;
    }
 }
@@ -449,8 +450,8 @@ p{
   opacity:0.8;
 }
 
-@media (max-width:767px) {
-  .footer-dark .item:not(.social) {
+@media (max-width:100%) {
+  .footer-dark .item:not(.social){
     text-align:center;
     padding-bottom:20px;
   }
@@ -471,6 +472,11 @@ p{
     margin-top:20px;
   }
 }
+
+
+
+
+
 
 .footer-dark .item.social > a {
   font-size:20px;
@@ -529,6 +535,13 @@ height: 100%;
     user-select: none;
     border:none;
     background-color:transparent
+}
+
+@media only screen and(min-width:250px) and (max-width: 600px) {
+  p {
+    background-color: rgb(10, 193, 254) !important;
+    border: 2px solid  !important;
+  }
 }
 .next {
     right: 0;

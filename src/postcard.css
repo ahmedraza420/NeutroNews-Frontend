@@ -37,10 +37,10 @@
     overflow: hidden;
   }
   .post-module .pic1 .date {
-    position: absolute;
+    position: relative;
     top: 20px;
     right: 20px;
-    z-index: 1;
+    z-index: -1;
     background: #e74c3c;
     width: 55px;
     height: 55px;
@@ -201,6 +201,7 @@
   
 .news-icon {
   border-radius: 3px;
+  background-color: white;
 }
 
 
