@@ -9,8 +9,6 @@ import blogcard from './card.js';
  import samaaicon from '../static/images/samaaicon.png'
 
 
-
-
 // function blogcard(element){
 //     return (
 //         <div className="post-module body-div1" key={element.id}>
@@ -41,9 +39,9 @@ function SearchedNews() {
     console.log(state, text);
   return (
     <div className='container-fluid'>
-        <div className='d-flex justify-content-between align-items-center mt-3'>
+        <div className='d-flex justify-content-between align-items-center mt-3 mb-4'>
             <div>
-                <h3 style={{fontWeight: 300}}>Searches for <b style={{fontWeight: 500}}>{text}</b></h3>
+                <h3>Searches for <b style={{fontWeight: 700, color:'lightblue'}}>{text}</b></h3>
             </div>
             <div>
                 <button className="btn_reload" style={{border: 'none',fontSize: '25px',padding: '0 12px 0 12px',background: 'steelBlue', borderRadius: '8px'}}>

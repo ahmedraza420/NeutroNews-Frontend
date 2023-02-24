@@ -1,5 +1,6 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
+import GoTop from './components/goTop';
 import Home from './components/home';
 import ReadNews from './components/readNews';
 import SearchedNews from './components/searchedNews';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/searched-news" element={<SearchedNews />}/>
         <Route path="/read-news/:id" element={<ReadNews />}/>
       </Routes>
+      <GoTop />
     </div>
   )
 }

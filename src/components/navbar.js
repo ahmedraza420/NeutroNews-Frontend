@@ -1,18 +1,23 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate,Link,useLocation } from "react-router-dom";
 import {UserContext} from '../api/context';
+import AlertMessage from './alertMessage';
+
 
 function Navbar() {
-
-
-
-
-
-    const {news, scrapeNews, isScrape} = useContext(UserContext)
+    
+    const {news, scrapeNews, isScrape, msg} = useContext(UserContext)
     const [text, setText]=useState('');
+    // let searchedNews=[];
     const [searchedNews, setSearchedNews] = useState([]);
     const navigate = useNavigate();
 
+    const location = useLocation();
+    const path = location.pathname;
+    const [display, setDisplay] = useState(false);
+    useEffect(() => {
+        setDisplay(path === "/" ? true : false);
+    },[path])
 
 
 
@@ -104,22 +109,21 @@ function Navbar() {
                     <li className="nav-item active">
                         <Link className="nav-link" to={'/'}>Home</Link>
                     </li>
+                    {display &&
                     <li>
-                        <button className="btn btn-secondary btn-sm" disabled={isScrape ? true : false} type="button" onClick={scrapeNews}>
-                            {isScrape ?
-                            <span>
-                            <span className="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"></span>
-                            Scraping...
-                            </span>
-                            : <span>Scrape</span>
-                            }
-                        </button>
+                    <button className="btn btn-secondary btn-sm" disabled={isScrape ? true : false} type="button" onClick={scrapeNews}>
+                    {isScrape ?
+                    <span>
+                    <span className="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"></span>
+                    Scraping...
+                    </span>
+                    : <span>Scrape</span>
+                    }
+                    </button>
                     </li>
-
-
+                    }
 
                     <li>
-
                     <div > {/*className={`App ${theme}`}>*/}
                     <label class="tswitch">
                     <input type="checkbox" checked={theme === 'dark'} onChange={toggleTheme} />
@@ -143,7 +147,8 @@ function Navbar() {
                 </span>
             </div>
         </nav>
-    </div>
+        {msg==="DataScraped" ? <AlertMessage /> : null}
+          </div>
   )
 }
 
